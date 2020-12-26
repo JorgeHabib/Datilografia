@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Datilografia</title>
+</head>
+<body>
+    <div class="main-content">
+        <h1>asd jkl</h1>
+        <input type="text" />
+
+        <div class='score-board'>
+            <div>
+                <h2>Acertos</h2>
+                <p class='acertos' id='acertos'>0</p>
+            </div>
+            <div>
+                <h2>Erros</h2>
+                <p class='erros' id='erros'>0</p>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        const input = document.querySelector('input');
+        const erros = document.getElementById('erros');
+        const acertos = document.getElementById('acertos');
+        
+        console.log(input)
+
+        input.addEventListener('keydown', function (e) {
+            if ((e.target.value) === 'asd jkl') {
+                input.value = '';
+                acertos.innerHTML = Number(acertos.innerHTML) + 1;
+                return;
+            }
+
+            if (e.key === 'Enter') {
+                input.value = '';
+                erros.innerHTML = Number(erros.innerHTML) + 1;
+                return;
+            }
+
+            if (input.value.length > 7) {
+                input.value = '';
+                erros.innerHTML = Number(erros.innerHTML) + 1;
+                return;
+            }
+        })
+    </script>
+</body>
+</html>
