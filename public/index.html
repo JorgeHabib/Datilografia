@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="main-content">
-        <h1>asd jkl</h1>
+        <h1>asdf jkl;</h1>
         <input type="text" />
 
         <div class='score-board'>
@@ -30,7 +30,7 @@
         console.log(input)
 
         input.addEventListener('keydown', function (e) {
-            if ((e.target.value) === 'asd jkl') {
+            if ((e.target.value) === 'asdf jkl;') {
                 input.value = '';
                 acertos.innerHTML = Number(acertos.innerHTML) + 1;
                 return;
@@ -42,7 +42,7 @@
                 return;
             }
 
-            if (input.value.length > 7) {
+            if (input.value.length > 9) {
                 input.value = '';
                 erros.innerHTML = Number(erros.innerHTML) + 1;
                 return;
