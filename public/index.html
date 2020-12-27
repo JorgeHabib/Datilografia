@@ -8,17 +8,33 @@
 </head>
 <body>
     <div class="main-content">
-        <h1>asdf jkl;</h1>
-        <input type="text" />
+        <div class='level-board'>
+            <button id='Nivel1' class='selected-level'>Nivel 1</button>
+            <button id='Nivel2'>Nivel 2</button>
+            <button id='Nivel3'>Nivel 3</button>
+            <button id='Nivel4'>Nivel 4</button>
+            <button id='Nivel5'>Nivel 5</button>
+            <button id='Nivel6'>Nivel 6</button>
+            <button id='Nivel7'>Nivel 7</button>
+        </div>
+        <div class='study-board'>
+            <h1 id='copy-statement'>asdf jkl;</h1>
+            <input type="text" />
+    
+            <div class='score-board'>
+                <div>
+                    <h2>Acertos</h2>
+                    <p class='acertos' id='acertos'>0</p>
+                </div>
+                <div>
+                    <h2>Erros</h2>
+                    <p class='erros' id='erros'>0</p>
+                </div>
 
-        <div class='score-board'>
-            <div>
-                <h2>Acertos</h2>
-                <p class='acertos' id='acertos'>0</p>
-            </div>
-            <div>
-                <h2>Erros</h2>
-                <p class='erros' id='erros'>0</p>
+                <div>
+                    <h2>Media de Tempo</h2>
+                    <p class='time' id='time'>0</p>
+                </div>
             </div>
         </div>
     </div>
@@ -26,25 +42,170 @@
         const input = document.querySelector('input');
         const erros = document.getElementById('erros');
         const acertos = document.getElementById('acertos');
+        const sentence = document.getElementById('copy-statement');
+        const time = document.getElementById('time');
+
+        let totalTime = 0;
+        let chronometerHasStarted = false;
+
+        const button1 = document.getElementById('Nivel1');
+        const button2 = document.getElementById('Nivel2');
+        const button3 = document.getElementById('Nivel3');
+        const button4 = document.getElementById('Nivel4');
+        const button5 = document.getElementById('Nivel5');
+        const button6 = document.getElementById('Nivel6');
+        const button7 = document.getElementById('Nivel7');
+
+        button1.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.add('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'asdf jkl;';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        button2.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.remove('selected-level');
+            button2.classList.add('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'adsf jlk;';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
         
-        console.log(input)
+        button3.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.remove('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.add('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'afsd j;kl';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        button4.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.remove('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.add('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'afsd ;jkl';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        button5.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.remove('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.add('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'ajsk dlf;';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        button6.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+
+            button1.classList.remove('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.add('selected-level');
+            button7.classList.remove('selected-level');
+
+            sentence.innerHTML = 'a;sk dlfk';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        button7.addEventListener('click', (e) => {
+            chronometerHasStarted = false;
+            
+            button1.classList.remove('selected-level');
+            button2.classList.remove('selected-level');
+            button3.classList.remove('selected-level');
+            button4.classList.remove('selected-level');
+            button5.classList.remove('selected-level');
+            button6.classList.remove('selected-level');
+            button7.classList.add('selected-level');
+
+            sentence.innerHTML = 'ased jikl';
+
+            erros.innerHTML = 0;
+            acertos.innerHTML = 0;
+        });
+
+        setInterval(() => {
+            if (chronometerHasStarted) {
+                totalTime += 0.2;
+            }
+        }, 200);
 
         input.addEventListener('keydown', function (e) {
-            if ((e.target.value) === 'asdf jkl;') {
+            chronometerHasStarted = true;
+
+            if ((e.target.value) === sentence.innerHTML) {
                 input.value = '';
                 acertos.innerHTML = Number(acertos.innerHTML) + 1;
+
+                time.innerHTML = totalTime/(Number(acertos.innerHTML) + Number(erros.innerHTML));
+                
                 return;
             }
 
             if (e.key === 'Enter') {
                 input.value = '';
                 erros.innerHTML = Number(erros.innerHTML) + 1;
+
+                time.innerHTML = totalTime/(Number(acertos.innerHTML) + Number(erros.innerHTML));
                 return;
             }
 
-            if (input.value.length > 9) {
+            if (input.value.length > sentence.innerHTML.length) {
                 input.value = '';
                 erros.innerHTML = Number(erros.innerHTML) + 1;
+
+                time.innerHTML = totalTime/(Number(acertos.innerHTML) + Number(erros.innerHTML));
                 return;
             }
         })
